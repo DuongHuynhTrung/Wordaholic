@@ -42,8 +42,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
           id: user.id,
         },
       },
-      process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "1d" }
+      process.env.ACCESS_TOKEN_SECRET
     );
 
     const refreshToken = jwt.sign(
@@ -56,8 +55,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
           id: user.id,
         },
       },
-      process.env.REFRESH_TOKEN_SECRET,
-      { expiresIn: "7d" }
+      process.env.REFRESH_TOKEN_SECRET
     );
     // Create secure cookie with refresh token
     res.cookie("jwt", refreshToken, {
@@ -97,8 +95,7 @@ const loginGoogle = asyncHandler(async (req, res) => {
             id: user.id,
           },
         },
-        process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "1d" }
+        process.env.ACCESS_TOKEN_SECRET
       );
 
       res.status(200).json({ accessToken });
@@ -126,8 +123,7 @@ const loginGoogle = asyncHandler(async (req, res) => {
             id: newUser.id,
           },
         },
-        process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "1d" }
+        process.env.ACCESS_TOKEN_SECRET
       );
       res.status(200).json({ accessToken });
     }
@@ -172,8 +168,7 @@ const login = asyncHandler(async (req, res, next) => {
             id: user.id,
           },
         },
-        process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "1d" }
+        process.env.ACCESS_TOKEN_SECRET
       );
 
       const refreshToken = jwt.sign(
@@ -186,8 +181,7 @@ const login = asyncHandler(async (req, res, next) => {
             id: user.id,
           },
         },
-        process.env.REFRESH_TOKEN_SECRET,
-        { expiresIn: "7d" }
+        process.env.REFRESH_TOKEN_SECRET
       );
 
       // Create secure cookie with refresh token
