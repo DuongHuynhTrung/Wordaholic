@@ -89,6 +89,7 @@ const updateUsers = asyncHandler(async (req, res, next) => {
     }
 
     const { fullname, avatar } = req.body;
+
     const updateFields = {
       fullname: fullname !== undefined ? fullname : user.fullname,
       avatar: avatar !== undefined ? avatar : user.avatar,

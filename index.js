@@ -52,12 +52,16 @@ db.connect();
 // Định nghĩa các routes
 const userRouter = require("./src/routes/UserRouter");
 const authRouter = require("./src/routes/AuthRouter");
+const itemRouter = require("./src/routes/ItemRouter");
+const toolRouter = require("./src/routes/ToolRouter");
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
 // Đăng ký routers
-app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/users", userRouter);
+app.use("/api/items", itemRouter);
+app.use("/api/tools", toolRouter);
 
 // Xử lý lỗi
 app.use(errorHandler);

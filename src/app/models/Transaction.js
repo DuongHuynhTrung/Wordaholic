@@ -6,12 +6,14 @@ const toolSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
-    item_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Item",
+    transaction_type: {
+      type: String,
     },
-    quantity: {
+    amount: {
       type: Number,
+    },
+    transaction_code: {
+      type: String,
     },
   },
   {
